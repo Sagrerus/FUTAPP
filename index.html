@@ -1,126 +1,242 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Silueta Móvil</title>
+
+<title>FUT COIN</title>
+
 <style>
-    body {
-        margin: 0;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #2c3e50; /* Color de fondo oscuro */
-        overflow: hidden;
-    }
 
-    .silueta {
-        width: 100px;
-        height: 100px;
-        background-color: #ecf0f1; /* Color de la silueta */
-        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* Forma de rombo */
-        
-        /* Animación */
-        animation: moverSilueta 4s infinite alternate ease-in-out;
-    }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
 
-    @keyframes moverSilueta {
-        0% {
-            transform: translate(-150px, -150px) rotate(0deg);
-            background-color: #3498db;
-        }
-        50% {
-            background-color: #e74c3c;
-            border-radius: 50%; /* Cambia a círculo en el medio */
-        }
-        100% {
-            transform: translate(150px, 150px) rotate(360deg);
-            background-color: #2ecc71;
-            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-        }
-    }
+body{
+    background:#f2f2f2;
+}
+
+.app{
+    max-width:430px;
+    margin:auto;
+    min-height:100vh;
+    background:white;
+    overflow:hidden;
+    position:relative;
+}
+
+.header{
+    height:70px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 20px;
+    border-bottom:1px solid #ddd;
+    background:white;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:bold;
+    color:#00c853;
+}
+
+.clock{
+    color:#666;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.page{
+    display:none;
+    padding:20px;
+    padding-bottom:110px;
+}
+
+.page.active{
+    display:block;
+}
+
+.section-title{
+    font-size:28px;
+    font-weight:bold;
+    margin-bottom:20px;
+    color:#111;
+}
+
+.match-card{
+    background:white;
+    border-radius:24px;
+    padding:20px;
+    margin-bottom:18px;
+    border:1px solid #ddd;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.league{
+    color:#00c853;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.match-content{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.team{
+    width:35%;
+    text-align:center;
+}
+
+.team img{
+    width:65px;
+    height:65px;
+    object-fit:contain;
+    margin-bottom:10px;
+}
+
+.team-name{
+    font-size:14px;
+    font-weight:bold;
+}
+
+.vs{
+    font-size:22px;
+    font-weight:bold;
+    color:#777;
+}
+
+.match-time{
+    text-align:center;
+    margin-top:15px;
+    color:#666;
+    font-size:15px;
+}
+
+.table{
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    border:1px solid #ddd;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.table-header{
+    background:#00c853;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    padding:15px;
+    font-weight:bold;
+}
+
+.table-row{
+    display:flex;
+    justify-content:space-between;
+    padding:15px;
+    border-top:1px solid #eee;
+}
+
+.store-img{
+    width:150px;
+    border-radius:20px;
+    margin-bottom:15px;
+}
+
+.price{
+    color:#00c853;
+    font-size:20px;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+.bottom-nav{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    max-width:430px;
+    background:white;
+    border-top:1px solid #ddd;
+    display:flex;
+    justify-content:space-around;
+    padding:15px 0;
+}
+
+.nav-item{
+    color:#777;
+    font-size:12px;
+    cursor:pointer;
+    text-align:center;
+}
+
+.nav-item.active{
+    color:#00c853;
+    font-weight:bold;
+}
+
+/* JUEGO */
+
+#goalGame{
+    width:100%;
+    height:320px;
+    background:linear-gradient(to bottom,#4caf50,#2e7d32);
+    border-radius:20px;
+    position:relative;
+    overflow:hidden;
+    margin-top:20px;
+}
+
+#goalkeeper{
+    width:80px;
+    height:80px;
+    background:red;
+    position:absolute;
+    top:40px;
+    left:50%;
+    transform:translateX(-50%);
+    border-radius:10px;
+    transition:0.3s;
+}
+
+#ball{
+    position:absolute;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:55px;
+    cursor:pointer;
+    transition:0.5s;
+}
+
+.buy-btn{
+    width:100%;
+    margin-top:15px;
+    padding:14px;
+    border:none;
+    border-radius:15px;
+    background:#00c853;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    font-size:16px;
+}
+
 </style>
+
 </head>
 <body>
 
-    <div class="silueta"></div>
+    < div class="app">
 
+        
 </body>
-</html>
-      
-    </div>
-
-      <h2>PREMIER LEAGUE</h2>
-      <div class="match">
-        <span>Chelsea vs Newcastle</span>
-        <span class="time">13:30</span>
-      </div>
-
-      <div class="match">
-        <span>Tottenham vs Aston Vila</span>
-        <span class="time">16:00</span>
-      </div>
-
-      <div class="menu">
-        <span>INICI</span>
-        <span>JOCS</span>
-        <span>BOTIGA</span>
-      </div>
-    </div>
-
-    <div class="screen">
-      <h1>Classificación La Liga</h1>
-
-      <div class="table">
-        <div class="row"><span>1. FC Barcelona</span><span>91</span></div>
-        <div class="row"><span>2. Real Madrid</span><span>77</span></div>
-        <div class="row"><span>3. Villareal</span><span>69</span></div>
-        <div class="row"><span>4. Atl. Madrid</span><span>66</span></div>
-        <div class="row"><span>5. Betis</span><span>57</span></div>
-        <div class="row"><span>6. Celta</span><span>50</span></span></div>
-        <div class="row"><span>7. Getafe</span><span>48</span></div>
-        <div class="row"><span>8. Real Sociedad</span><span>44</span></div>
-        <div class="row"><span>9. Ath. Bilbao</span><span>44</span></div>
-        <div class="row"><span>10. Sevilla FC</span><span>43</span></div>
-        <div class="row"><span>11. Rayo Vallecano</span><span>43</span></div>
-        <div class="row"><span>12. Osasuna</span><span>42</span></div>
-        <div class="row"><span>13. Valencia</span><span>42</span></div>
-        <div class="row"><span>14. Espanyol</span><span>32</span></div>        
-        <div class="row"><span>15. Alavés</span><span>40</span></div>
-        <div class="row"><span>16. Elche</span><span>39</span></div>
-        <div class="row"><span>17. Mallorca</span><span>39</span></div>
-        <div class="row"><span>18. Levante</span><span>39</span></div>
-        <div class="row"><span>19. Girona</span><span>39</span></div>
-        <div class="row"><span>20. Real Oviedo</span><span>29</span></div>
-      </div>
-    </div>
-
-    <div class="screen">
-      <h1>Tienda FUT COIN</h1>
-
-      <div class="shop-item">
-        <div>Equipación Barça 25/26</div>
-        <div class="coins">25.000.000 FUTCOINS</div>
-      </div>
-
-      <div class="shop-item">
-        <div>Equipación Real Madrid 25/26</div>
-        <div class="coins">25.000.000 FUTCOINS</div>
-      </div>
-
-      <div class="shop-item">
-        <div>Equipación Atl. Madrid 25/26</div>
-        <div class="coins">25.000.000 FUTCOINS</div>
-      </div>
-
-      <div class="shop-item">
-        <div>Pelota Puma LaLiga 25/26</div>
-        <div class="coins">10.000.000 FUTCOINS</div>
-      </div>
-    </div>
-
-  </div>
-</body>
-</html>
