@@ -15,10 +15,10 @@ FUT COIN és una interfície interactiva que permet als usuaris consultar els pa
 
 ## Estructura del Repositori
 * `/src` - Conté el codi font principal del projecte (`index.html`).
-* `/img` - Conté totes les imatges locals utilitzades a la interfície (escuts, productes).
+* `/img` - Conté totes les imatges locals utilitzades (escuts, productes).
 * `/docs` - Documentació addicional i planificació del projecte.
 
 ## Tecnologies Utilitzades
 * **HTML:** Estructura i esquelet de l'aplicació.
-* **CSS:** Disseny responsiu, maquetació d'estil mòbil i animacions.
+* **CSS:** Disseny responsiu, maqueta d'estil mòbil i animacions.
 * **JavaScript:** Lògica del minijoc, navegació entre pestanyes del menú inferior i gestió del rellotge.
