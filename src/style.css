@@ -1,0 +1,222 @@
+/* Quita márgenes */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+/* Color de fondo de la página */
+body {
+  background: #f2f2f2;
+}
+/* Parte principal de la app */
+.app {
+  max-width: 430px;
+  margin: auto;
+  min-height: 100vh;
+  background: white;
+  overflow: hidden;
+  position: relative;
+}
+/* Parte superior con el logo y el reloj */
+.header {
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  border-bottom: 1px solid #ddd;
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+/* Nombre de la aplicación */
+.logo {
+  font-size: 30px;
+  font-weight: bold;
+  color: #00c853;
+}
+/* Reloj que se actualiza con JavaScript */
+.clock {
+  color: #666;
+  font-size: 18px;
+  font-weight: bold;
+}
+/* Todas las páginas están ocultas */
+.page {
+  display: none;
+  padding: 20px;
+  padding-bottom: 110px;
+}
+/* Solo la página activa se muestra */
+.page.active {
+  display: block;
+}
+/* Títulos de cada sección */
+.section-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #111;
+}
+/* Tarjetas donde aparecen partidos, tienda o juegos */
+.match-card {
+  background: white;
+  border-radius: 24px;
+  padding: 20px;
+  margin-bottom: 18px;
+  border: 1px solid #ddd;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+/* Texto pequeño que indica la liga y la hora */
+.league {
+  color: #00c853;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+/* Coloca los dos equipos y el VS */
+.match-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* Cada equipo ocupa una parte de la tarjeta */
+.team {
+  width: 35%;
+  text-align: center;
+}
+/* Escudos de los equipos */
+.team img {
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+/* Nombre del equipo */
+.team-name {
+  font-size: 14px;
+  font-weight: bold;
+}
+/* Texto VS del centro */
+.vs {
+  font-size: 22px;
+  font-weight: bold;
+  color: #777;
+}
+/* Hora del partido */
+.match-time {
+  text-align: center;
+  margin-top: 15px;
+  color: #666;
+  font-size: 15px;
+}
+/* Caja de la clasificación */
+.table {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+/* Cabecera de la tabla */
+.table-header {
+  background: #00c853;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  font-weight: bold;
+}
+/* Cada fila de la clasificación */
+.table-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  border-top: 1px solid #eee;
+}
+/* Imagen del producto de la tienda */
+.store-img {
+  width: 150px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+}
+/* Precio del producto */
+.price {
+  color: #00c853;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+/* Botón de compra */
+.buy-btn {
+  width: 100%;
+  margin-top: 15px;
+  padding: 14px;
+  border: none;
+  border-radius: 15px;
+  background: #00c853;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+}
+/* Menú inferior */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 430px;
+  background: white;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 0;
+}
+/* Cada botón del menú inferior */
+.nav-item {
+  color: #777;
+  font-size: 12px;
+  cursor: pointer;
+  text-align: center;
+}
+/* Botón del menú que está seleccionado */
+.nav-item.active {
+  color: #00c853;
+  font-weight: bold;
+}
+/* Campo fútbol del minijuego */
+#goalGame {
+  width: 100%;
+  height: 320px;
+  background: linear-gradient(to bottom, #4caf50, #2e7d32);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 20px;
+}
+/* Portero del juego */
+#goalkeeper {
+  width: 80px;
+  height: 80px;
+  background: red;
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  transition: 0.3s;
+}
+/* Balón del juego */
+#ball {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 55px;
+  cursor: pointer;
+  transition: 0.5s;
+}
